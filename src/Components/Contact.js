@@ -46,6 +46,7 @@ function Contact() {
           console.log("Email sent successfully:", response);
           alert("Message sent successfully!");
           setFormData({ name: "", email: "", message: "" });
+          setErrors({}); // Clear any existing errors
         })
         .catch((error) => {
           console.error("Error sending email:", error);
@@ -66,13 +67,14 @@ function Contact() {
                 </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${errors.name ? "is-invalid" : ""}`}
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
                 />
+                {errors.name && <div className="invalid-feedback">{errors.name}</div>}
               </div>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
@@ -80,20 +82,21 @@ function Contact() {
                 </label>
                 <input
                   type="email"
-                  className="form-control"
+                  className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
                 />
+                {errors.name && <div className="invalid-feedback">{errors.name}</div>}
               </div>
               <div className="mb-3">
                 <label htmlFor="message" className="form-label">
                   Message
                 </label>
                 <textarea
-                  className="form-control"
+                  className={`form-control ${errors.name ? "is-invalid" : ""}`}
                   id="message"
                   name="message"
                   rows="5"
@@ -101,6 +104,7 @@ function Contact() {
                   onChange={handleChange}
                   required
                 ></textarea>
+                {errors.name && <div className="invalid-feedback">{errors.name}</div>}
               </div>
               <button type="submit" className="btn btn-primary">
                 Send Message
