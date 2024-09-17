@@ -3,6 +3,9 @@
  * It includes styles for the body, App container, navigation, sections, and various UI elements.
  * The styles are designed to be responsive and adapt to different screen sizes.
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla:wght@400;700&display=swap');
+
 /* General Styles */
 body {
   font-family: "Roboto", sans-serif;
@@ -83,13 +86,18 @@ body {
   backdrop-filter: blur(10px);
 }
 
-.navbar-brand,
-.nav-link {
-  color: var(--text-color) !important;
+.navbar-brand {
+  font-family: 'Protest Guerrilla', sans-serif;
+  color: var(--primary-color); 
+  transition: color 0.3s ease;
 }
-.navbar-brand img {
-  height: 60px;
-  width: auto;
+
+.navbar-brand:hover{
+  color: var(--secondary-color);
+}
+
+.nav-link {
+  color: var(--primary-color) ;
 }
 
 .nav-item {
@@ -102,7 +110,7 @@ body {
 }
 
 .nav-item:hover .nav-link {
-  color: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
 }
 
 @media (max-width: 768px) {
