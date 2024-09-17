@@ -1,3 +1,7 @@
+/**
+ * Renders the About section of the application.
+ * This section provides information about the developer, including their background, skills, and goals.
+ */
 import React from "react";
 
 function About() {

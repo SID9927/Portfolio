@@ -1,7 +1,15 @@
+/**
+ * This CSS file defines the general styles and theme-related styles for the application.
+ * It includes styles for the body, App container, navigation, sections, and various UI elements.
+ * The styles are designed to be responsive and adapt to different screen sizes.
+ */
 /* General Styles */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   transition: background-color 0.3s, color 0.3s;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 .App {
@@ -14,15 +22,17 @@ body {
 .light {
   --bg-color: #f0f0f0;
   --text-color: #333;
-  --primary-color: #9acc52;
-  --secondary-color: #2ecc71;
+  --primary-color: #6c9898;
+  --secondary-color: #264348;
+  --btn-bgcolor: #006973;
 }
 
 .dark {
   --bg-color: #000000;
   --text-color: #ecf0f1;
-  --primary-color: #9acc52;
-  --secondary-color: #2ecc71;
+  --primary-color: #82cdf2;
+  --secondary-color: #049be5;
+  --btn-bgcolor: #006973;
 }
 
 body {
@@ -30,13 +40,51 @@ body {
   color: var(--text-color);
 }
 
+.btn-primary {
+  background-color: var(--btn-bgcolor);
+  border-color: var(--btn-bgcolor);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  color: var(--btn-bgcolor);
+  background-color: var(--bg-color);
+  border-color: var(--btn-bgcolor);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 105, 115, 0.3);
+}
+
+.btn-outline-primary {
+  color: var(--btn-bgcolor);
+  border-color: var(--btn-bgcolor);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  color: var(--btn-bgcolor);
+  background-color: var(--bg-color);
+  border-color: var(--btn-bgcolor);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 105, 115, 0.3);
+}
+
+.btn-outline-primary:active {
+  color: #0000ff; /* Blue color when clicked */
+  background-color: transparent;
+  transform: translateY(0);
+}
+
 /* Navigation Styles */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
 }
 
-.navbar-brand, .nav-link {
+.navbar-brand,
+.nav-link {
   color: var(--text-color) !important;
 }
 .navbar-brand img {
@@ -50,18 +98,44 @@ body {
 }
 
 .nav-item:hover {
-  color: var(--primary-color); /* Change color on hover if needed */
+  color: var(--primary-color);
 }
 
 .nav-item:hover .nav-link {
   color: var(--primary-color) !important;
 }
 
-.btn-theme-toggle {
-  background: none;
-  border: none;
-  color: var(--text-color);
-  font-size: 1.2rem;
+@media (max-width: 768px) {
+  .navbar-nav {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 5px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .home-section {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .profile-image {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+  }
+
+  .animated-text {
+    font-size: 2rem;
+  }
 }
 
 /* Section Styles */
@@ -86,7 +160,6 @@ section {
 .home-section .social-link a {
   color: var(--text-color);
   transition: color 0.3s ease, transform 0.3s ease;
-  
 }
 
 .home-section .social-link a:hover {
@@ -94,12 +167,52 @@ section {
   transform: scale(1.1);
 }
 
+@media (max-width: 768px) {
+  .home-section {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .profile-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .home-section .btn-primary {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding: 10px 0;
+  }
+}
 
 .animated-text {
   font-size: 3rem;
   font-weight: bold;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient 5s ease infinite;
 }
@@ -111,15 +224,20 @@ section {
   50% {
     background-position: 100% 50%;
   }
-  100%{
+  100% {
     background-position: 0% 50%;
   }
 }
 
 .typed-text {
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient 5s ease infinite;
 }
@@ -153,22 +271,60 @@ section {
   text-align: center;
   margin-bottom: 30px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .skill-item svg {
   font-size: 4rem;
   color: var(--primary-color);
   margin-bottom: 15px;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.skill-item:hover {
+.skill-item:hover,
+.skill-item:active,
+.skill-item:focus {
   transform: translateY(-5px);
+  transition: transform 0.3s ease;
 }
 
-.skill-item:hover svg {
+.skill-item:hover,
+.skill-item:active,
+.skill-item:focus {
   transform: scale(1.2);
   color: var(--secondary-color);
+}
+
+@media (max-width: 767px) {
+  .skills-section {
+    padding-top: 60px;
+  }
+
+  .skills-section .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .skills-section .col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+
+  .skill-item {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .skill-item svg {
+    font-size: 2.5rem;
+  }
+
+  .skill-item h3 {
+    font-size: 0.9rem;
+  }
+  .skill-item:active {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }
 
 /* Projects Section */
@@ -199,7 +355,7 @@ section {
 }
 
 .education-timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -235,22 +391,24 @@ section {
   opacity: 0.8;
 }
 
-.education-dot {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .education-item:nth-child(even) .education-content {
   margin-left: auto;
 }
 
+@media (max-width: 768px) {
+  .education-timeline::before {
+    left: 20px;
+  }
 
+  .education-content {
+    width: calc(100% - 40px);
+    margin-left: 40px;
+  }
+
+  .education-dot {
+    left: 0;
+  }
+}
 
 /* Contact Section */
 .contact-section form {
@@ -282,6 +440,12 @@ section {
   color: var(--primary-color);
 }
 
+@media (max-width: 768px) {
+  .footer .col-md-6:first-child {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -299,31 +463,64 @@ section {
   }
 }
 
-@media (max-width: 768px) {
-  .education-timeline::before {
-    left: 0;
-  }
-  
-  .education-content {
-    width: 100%;
-    margin-left: 20px !important;
-  }
-  
-  .education-dot {
-    left: 0;
-  }
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-
-.btn-primary {
-  background-color: #2ecc71;
-  border-color: #2ecc71;
-  transition: all 0.3s ease;
+.scroll-to-top.visible {
+  opacity: 1;
 }
 
-.btn-primary:hover {
-  background-color: #27ae60;
-  border-color: #27ae60;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+.floating-theme-toggle {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s, background-color 0.3s;
+  z-index: 1000;
+}
+
+.floating-theme-toggle:hover {
+  background-color: var(--secondary-color);
+}
+
+.modal-content {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.modal-header {
+  border-bottom-color: var(--primary-color);
+}
+
+.modal-footer {
+  border-top-color: var(--primary-color);
+}
+
+.modal-title {
+  color: var(--secondary-color);
+}
+
+.btn-close {
+  color: var(--text-color);
 }

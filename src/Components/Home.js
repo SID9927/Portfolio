@@ -1,3 +1,9 @@
+/**
+ * The `Home` component represents the home section of the application.
+ * It displays the user's profile image, name, job titles, and a brief description.
+ * It also includes links to the user's GitHub, LinkedIn, and email, as well as a download link for the user's resume.
+ * The component uses the `Typed.js` library to create a typing effect for the job titles.
+ */
 import React, { useEffect, useRef } from "react";
 import { FaDownload, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import profileImage from "../media/sid.jpeg";
@@ -25,23 +31,18 @@ function Home() {
   }, []);
 
   return (
-    <section id="home" className="home-section">
+    <section id="home" className="home-section d-flex align-items-center">
       <div className="container">
-        <div className="row align-items-center">
+        <div className="row align-items-center flex-column-reverse flex-md-row">
           <div className="col-md-6">
             <h1 className="animated-text">Hello, I'm Siddharth</h1>
             <h2 className="typed-text">
               <span ref={el}></span>
             </h2>
             <p className="lead">
-              <p>
-                <p>
-                  Aspiring software developer with a solid foundation in Java,
-                  C#, Web development and Database. Passionate about enhancing
-                  my skills and contributing to innovative solutions in a
-                  dynamic environment.
-                </p>
-              </p>
+              Aspiring software developer with a solid foundation in Java, C#,
+              Web development and Database. Passionate about enhancing my skills
+              and contributing to innovative solutions in a dynamic environment.
             </p>
             <div className="social-link mb-3">
               <a
