@@ -1,21 +1,20 @@
 /**
- * The `Projects` component renders a section displaying a list of projects, with the ability to filter by category and view project details in a modal.
+ * The `Projects` component displays a section showcasing the user's projects. It allows filtering projects by category (web or full-stack) and provides a modal for displaying detailed information about each project.
  *
- * The component uses the `useState` and `useContext` hooks to manage the state of the component, including the visibility of the modal, the selected project, and the current filter.
+ * The component uses the `ThemeContext` to apply the appropriate theme styles to the modal.
  *
- * The `projects` array contains the data for each project, including the title, description, video or image, link, and category. The `filteredProjects` array is created by filtering the `projects` array based on the current filter.
- *
- * The `openModal` function is called when the "View Details" button is clicked for a project, which sets the `selectedProject` state and shows the modal.
- *
- * The component renders a section with a title, a set of filter buttons, and a grid of project cards. Each project card displays the project's video or image, title, and a brief description, as well as "View Details" and "Live Demo" buttons.
- *
- * When the "View Details" button is clicked, a modal is displayed with the full project description and a link to the live demo.
+ * @returns {JSX.Element} The rendered `Projects` component.
  */
+
 import React, { useState, useContext } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button} from "react-bootstrap";
 import { ThemeContext } from "../ThemeContext";
 import newsVideo from "../media/NewsWebsite.mp4";
 import loginVideo from "../media/login.mp4";
+import farmerMarketvideo from "../media/Farmermarket.mp4";
+import project1 from "../media/project1.png";
+import project2 from "../media/project2.png";
+import project3 from "../media/project3.png";
 
 function Projects() {
   const [showModal, setShowModal] = useState(false);
@@ -26,21 +25,82 @@ function Projects() {
   const projects = [
     {
       title: "News Website",
-      description:
-        "It's a news website that uses HTML, Bootstrap, CSS, and JavaScript to display news data from the NewsAPI. The website is designed to be user-friendly and intuitive, with a search button that allows you to easily find news related to your keyword of interest. In this project, I have learned to fetch data through third party axios method and display the data on the website.",
+      description: `This dynamic news website showcases my proficiency in front-end web development and API integration. Built with HTML, Bootstrap, CSS, and JavaScript, it offers a seamless user experience for accessing up-to-date news from various sources.
+
+                    \n**Key features include:**\n
+                    • Responsive design using Bootstrap for optimal viewing across devices
+                    • Integration with NewsAPI to fetch real-time news data
+                    • User-friendly search functionality for finding news by keywords
+                    • Dynamic content rendering with JavaScript
+                    • Sleek and intuitive user interface with modern design principles
+                    • Implementation of Axios for efficient API requests
+                    • Category-based news filtering for personalized content exploration
+
+                    Through this project, I demonstrated my ability to create interactive web applications, work with external APIs, and implement core front-end technologies to deliver a polished, functional news platform.`,
       video: newsVideo,
+      image: project1,
       link: "https://news-website-project.netlify.app/",
       category: "web",
+      gitLink: "https://github.com/SID9927/GraduationProject.git",
     },
     {
       title: "Login Page",
-      description:
-        "Design a login page with a hacker-inspired theme featuring a dark, animated background and neon-green accents. The central login form includes sleek, retro-styled fields. Hover effects make interactive elements glow or change color, while subtle animations like code streams add to the immersive tech aesthetic, ensuring a modern, engaging experience.",
+      description: `This visually striking login page showcases my creativity and front-end development skills, featuring a captivating hacker-inspired theme. The project demonstrates my ability to create immersive user interfaces with advanced CSS techniques and animations.
+
+        \n**Key features include:**\n
+        • Dark, animated background with dynamic code streams for an authentic hacker aesthetic
+        • Neon-green accents and glow effects for interactive elements
+        • Sleek, retro-styled input fields with custom animations
+        • Responsive design ensuring compatibility across various devices
+        • Clever use of CSS animations to enhance user engagement
+        • Custom checkbox design integrated seamlessly with the overall theme
+        • Attention to detail in typography and layout for maximum visual impact
+
+        This project highlights my proficiency in creating unique, themed user interfaces and my understanding of modern web design principles, showcasing the perfect blend of functionality and visual appeal.`,
       video: loginVideo,
+      image: project2,
       link: "https://main--bespoke-custard-240aa6.netlify.app/",
       category: "web",
+      gitLink: "https://github.com/SID9927/LoginPage_HackerDesign.git",
+    },
+    {
+      title: "Farmer MarketPlace",
+      description: `The Farmer's Marketplace is a comprehensive full-stack e-commerce platform that revolutionizes the agricultural supply chain by directly connecting farmers with consumers. This project showcases my ability to develop complex, multi-faceted web applications using a diverse tech stack and implementing a wide range of features.
+        \n**Key features include:**\n
+        • User authentication and authorization for farmers, customers, and admins
+        • Product management system for farmers to list and manage their produce
+        • Intuitive shopping cart functionality for customers
+        • Robust order processing and management system
+        • Secure payment integration for seamless transactions
+        • User profile management with customizable settings
+        • Admin dashboard for overseeing marketplace operations
+        • Responsive design for optimal user experience across devices
+
+        \n**Tech stack:**\n
+        • Frontend: React.js with Redux for state management
+        • Backend: Java (Spring Boot) and ASP.NET Core
+        • Database: MySQL
+        • Additional technologies: Bootstrap
+
+        This project demonstrates my proficiency in full-stack development, database design, API integration, and creating scalable, user-centric web applications.`,
+      video: farmerMarketvideo,
+      image: project3,
+      link: "",
+      category: "Full Stack",
+      gitLink: "https://github.com/SID9927/CDAC_Project",
     },
   ];
+
+  const renderDescription = (description) => {
+    if (!description) return null;
+    return description.split('\n').map((paragraph, index) => {
+      if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+        return <strong key={index}>{paragraph.slice(2, -2)}</strong>;
+      }
+      return <p key={index}>{paragraph}</p>;
+    });
+  };
+  
 
   const filteredProjects = projects.filter(
     (project) => filter === "all" || project.category === filter
@@ -73,9 +133,9 @@ function Projects() {
             Web
           </button>
           <button
-            onClick={() => setFilter("mobile")}
+            onClick={() => setFilter("Full Stack")}
             className={`btn ${
-              filter === "mobile" ? "btn-primary" : "btn-outline-primary"
+              filter === "Full Stack" ? "btn-primary" : "btn-outline-primary"
             }`}
           >
             Full Stack
@@ -85,25 +145,12 @@ function Projects() {
           {filteredProjects.map((project, index) => (
             <div key={index} className="col-md-4 mb-4">
               <div className="project-card">
-                {project.video ? (
-                  <video
-                    src={project.video}
-                    alt={project.title}
-                    className="img-fluid"
-                    style={{ height: "300px", width: "100%" }}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
-                ) : (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="img-fluid"
-                    style={{ height: "300px", width: "100%" }}
-                  />
-                )}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="img-fluid"
+                  style={{ height: "250px", width: "100%" }}
+                />
                 <div className="project-info">
                   <h3>{project.title}</h3>
                   <p>{project.description.substring(0, 100)}...</p>
@@ -113,21 +160,31 @@ function Projects() {
                   >
                     View Details
                   </Button>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline-primary"
-                  >
-                    Live Demo
-                  </a>
+                  {project.category === "Full Stack" ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline-primary"
+                    >
+                      GitHub
+                    </a>
+                  ) : (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline-primary"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
       <Modal
         show={showModal}
         onHide={() => setShowModal(false)}
@@ -148,19 +205,21 @@ function Projects() {
               playsInline
             />
           )}
-          <p>{selectedProject?.description}</p>
+          <div style={{ maxHeight: "250px", overflowY: "auto" }}>
+            {renderDescription(selectedProject?.description)}
+          </div>{" "}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowModal(false)}>
             Close
           </Button>
           <a
-            href={selectedProject?.link}
+            href={selectedProject?.gitLink}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
-            View Live
+            GitHub
           </a>
         </Modal.Footer>
       </Modal>
