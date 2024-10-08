@@ -7,14 +7,16 @@
  */
 
 import React, { useState, useContext } from "react";
-import { Modal, Button} from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { ThemeContext } from "../ThemeContext";
 import newsVideo from "../media/NewsWebsite.mp4";
 import loginVideo from "../media/login.mp4";
 import farmerMarketvideo from "../media/Farmermarket.mp4";
+import authservicevideo from "../media/AuthService.mp4";
 import project1 from "../media/project1.png";
 import project2 from "../media/project2.png";
 import project3 from "../media/project3.png";
+import project4 from "../media/project4.webp";
 
 function Projects() {
   const [showModal, setShowModal] = useState(false);
@@ -40,7 +42,7 @@ function Projects() {
       video: newsVideo,
       image: project1,
       link: "https://news-website-project.netlify.app/",
-      category: "web",
+      category: "Frontend",
       gitLink: "https://github.com/SID9927/GraduationProject.git",
     },
     {
@@ -60,7 +62,7 @@ function Projects() {
       video: loginVideo,
       image: project2,
       link: "https://main--bespoke-custard-240aa6.netlify.app/",
-      category: "web",
+      category: "Frontend",
       gitLink: "https://github.com/SID9927/LoginPage_HackerDesign.git",
     },
     {
@@ -89,18 +91,48 @@ function Projects() {
       category: "Full Stack",
       gitLink: "https://github.com/SID9927/CDAC_Project",
     },
+    {
+      title: "Authentication and Authorization Service",
+      description: `The Authentication and Authorization Service is a robust backend project that provides secure user management and access control for web applications. This project demonstrates my proficiency in developing secure, scalable backend services using modern technologies and best practices in authentication and authorization.
+        \n**Key features include:**\n
+
+        • User registration with email and password
+        • Secure authentication using JWT (JSON Web Tokens)
+        • Role-based authorization for different user types
+        • Password encryption using BCrypt
+        • Stateless session management
+        • RESTful API endpoints for authentication and user management
+        • Database integration for user persistence
+        • Custom JWT filter for request authentication
+        • Configurable JWT expiration and secret key
+
+        \n**Tech stack:**\n
+
+        • Backend: Java with Spring Boot
+        • Security: Spring Security
+        • Database: MySQL with Spring Data JPA
+        • JWT: JJWT (Java JWT) library
+        • Build Tool: Maven or Gradle (based on project structure)
+
+        This project showcases my skills in backend development, security implementation, and creating reusable services that can be integrated into larger applications. It demonstrates my understanding of authentication flows, secure coding practices, and the ability to work with modern Java frameworks and libraries.`,
+
+      video: authservicevideo,
+      image: project4,
+      link: "",
+      category: "Backend",
+      gitLink: "https://github.com/SID9927/JWT_Authentication_Authorization_Service.git",
+    },
   ];
 
   const renderDescription = (description) => {
     if (!description) return null;
-    return description.split('\n').map((paragraph, index) => {
-      if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+    return description.split("\n").map((paragraph, index) => {
+      if (paragraph.startsWith("**") && paragraph.endsWith("**")) {
         return <strong key={index}>{paragraph.slice(2, -2)}</strong>;
       }
       return <p key={index}>{paragraph}</p>;
     });
   };
-  
 
   const filteredProjects = projects.filter(
     (project) => filter === "all" || project.category === filter
@@ -125,18 +157,26 @@ function Projects() {
             All
           </button>
           <button
-            onClick={() => setFilter("web")}
+            onClick={() => setFilter("Frontend")}
             className={`btn ${
-              filter === "web" ? "btn-primary" : "btn-outline-primary"
+              filter === "Frontend" ? "btn-primary" : "btn-outline-primary"
             } me-2`}
           >
-            Web
+            Frontend
+          </button>
+          <button
+            onClick={() => setFilter("Backend")}
+            className={`btn ${
+              filter === "Backend" ? "btn-primary" : "btn-outline-primary"
+            } me-2`}
+          >
+            Backend
           </button>
           <button
             onClick={() => setFilter("Full Stack")}
             className={`btn ${
               filter === "Full Stack" ? "btn-primary" : "btn-outline-primary"
-            }`}
+            } me-2`}
           >
             Full Stack
           </button>
@@ -160,9 +200,9 @@ function Projects() {
                   >
                     View Details
                   </Button>
-                  {project.category === "Full Stack" ? (
+                  {(project.category === "Full Stack" || project.category === "Backend") ? (
                     <a
-                      href={project.link}
+                      href={project.gitLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-outline-primary"
