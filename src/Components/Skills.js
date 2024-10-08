@@ -25,6 +25,7 @@ import {
   SiDotnet,
   SiSpring,
   SiHibernate,
+  SiPostman,
 } from "react-icons/si";
 
 function Skills() {
@@ -44,6 +45,7 @@ function Skills() {
     { name: "Hibernate", icon: <SiHibernate /> },
     { name: "Git", icon: <FaGitAlt /> },
     { name: "GitHub", icon: <FaGithub /> },
+    { name: "Postman", icon: <SiPostman /> },
   ];
 
   return (
