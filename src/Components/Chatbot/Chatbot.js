@@ -83,7 +83,7 @@ const Chatbot = () => {
       }
       scrollToBottom();
     }, 2000);
-  }, []);
+  }, [messages.length]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
