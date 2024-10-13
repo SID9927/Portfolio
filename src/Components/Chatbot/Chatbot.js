@@ -1,15 +1,4 @@
-/**
- * The Chatbot component is a React component that provides a chatbot interface for users to interact with and get information about Siddharth.
- *
- * The component manages the state of the chatbot, including the messages, input, and various UI states. It also handles user interactions, such as sending messages, clicking on options, and toggling the chatbot open/closed.
- *
- * The component uses the `localStorage` API to persist the chat messages and the open/closed state of the chatbot across page refreshes.
- *
- * The `generateResponse` function is responsible for generating appropriate responses based on the user's input. It handles various types of user queries, such as greetings, skills, projects, contact information, education, and experience.
- *
- * The component also includes functionality to automatically open the chatbot and display an initial greeting message if the chatbot is closed and the user has not interacted with it before.
- */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import "./Chatbot.css";
 
 const Chatbot = () => {
@@ -29,6 +18,8 @@ const Chatbot = () => {
   const [context, setContext] = useState({});
   const messagesEndRef = useRef(null);
   const [hasThankYou, setHasThankYou] = useState(false);
+
+  const messagesLength = useMemo(() => messages.length, [messages]);
 
   useEffect(() => {
     localStorage.setItem("chatMessages", JSON.stringify(messages));
@@ -66,10 +57,10 @@ const Chatbot = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsIcon(false);
-      setIsOpen(true);
-      if (messages.length === 0) {
+    if (!isOpen && messagesLength === 0 && localStorage.getItem("chatbotClosed") !== "true") {
+      setTimeout(() => {
+        setIsIcon(false);
+        setIsOpen(true);
         const initialGreetings = [
           "Hello! How can I assist you today?",
           "Welcome! What would you like to know about Siddharth?",
@@ -80,10 +71,10 @@ const Chatbot = () => {
           initialGreetings[Math.floor(Math.random() * initialGreetings.length)];
         setMessages([{ text: greeting, user: false }]);
         setShowOptions(true);
-      }
-      scrollToBottom();
-    }, 2000);
-  }, [messages.length]);
+      }, 2000);
+    }
+    scrollToBottom();
+  }, [isOpen, messagesLength]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -190,7 +181,7 @@ const Chatbot = () => {
       ]);
       setIsTyping(false);
       askForMoreQuestions();
-    }, 2000); // Adjust this delay as needed
+    }, 2000);
   };
 
   const askForMoreQuestions = () => {
@@ -248,7 +239,7 @@ const Chatbot = () => {
   const handleThankYou = () => {
     setShowOptions(false);
     setIsTyping(true);
-
+  
     setTimeout(() => {
       const thankYouResponses = [
         "You're welcome! It was a pleasure chatting with you. Take care!",
@@ -263,16 +254,18 @@ const Chatbot = () => {
         { text: response, user: false },
       ]);
       setIsTyping(false);
-
+  
       setTimeout(() => {
         setIsOpen(false);
         setIsIcon(true);
         setMessages([]);
         localStorage.removeItem("chatMessages");
+        localStorage.setItem("chatbotClosed", "true");
         setHasThankYou(true);
       }, 2000);
     }, 1000);
   };
+  
 
   return (
     <div

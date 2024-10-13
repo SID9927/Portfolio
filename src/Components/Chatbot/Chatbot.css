@@ -5,6 +5,7 @@
  * Messages from the user are displayed on the right with a blue background, while messages from the chatbot are displayed on the left with a light gray background.
  * The component also includes buttons for sending messages and selecting options.
  */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
  .light {
   --bg-color: #f0f0f0;
@@ -35,6 +36,8 @@
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
 }
   .chatbot-container.icon {
     width: 40px;
@@ -100,6 +103,7 @@
 
 .chat-input {
   flex-grow: 1;
+  font-size: 12px;
   border: none;
   padding: 5px;
   color: var(--text-color);
