@@ -24,6 +24,8 @@ import Contact from "./Components/Contact";
 import Education from "./Components/Education";
 import ScrollToTop from "./Components/ScrollToTop";
 import { ThemeProvider, ThemeContext } from "./ThemeContext";
+import Chatbot from './Components/Chatbot/Chatbot';
+
 
 function FloatingThemeToggle() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -174,6 +176,7 @@ function App() {
         </footer>
         <ScrollToTop />
         <FloatingThemeToggle />
+        <Chatbot />
       </div>
     </ThemeProvider>
   );

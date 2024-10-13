@@ -473,7 +473,7 @@ section {
 
 .scroll-to-top {
   position: fixed;
-  bottom: 20px;
+  bottom: 120px;
   right: 20px;
   background: var(--primary-color);
   color: white;
@@ -485,6 +485,7 @@ section {
   align-items: center;
   cursor: pointer;
   transition: opacity 0.3s;
+  z-index: 1000;
 }
 
 .scroll-to-top.visible {
@@ -505,7 +506,7 @@ section {
   align-items: center;
   cursor: pointer;
   transition: opacity 0.3s, background-color 0.3s;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .floating-theme-toggle:hover {
@@ -531,4 +532,13 @@ section {
 
 .btn-close {
   color: var(--text-color);
+}
+
+
+.chatbot-container {
+  z-index: 1001;
+}
+
+.floating-theme-toggle {
+  z-index: 1000;
 }
