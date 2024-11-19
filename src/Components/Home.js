@@ -7,7 +7,7 @@
 import React, { useEffect, useRef } from "react";
 import { FaDownload, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import profileImage from "../media/sid.jpeg";
-import resume from "../media/SIDDHARTH_CDAC.pdf";
+import resume from "../media/Siddharth.pdf";
 import Typed from "typed.js";
 
 function Home() {
