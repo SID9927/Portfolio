@@ -32,8 +32,8 @@ function Skills() {
   const skills = [
     { name: "Java", icon: <FaJava /> },
     { name: "C++", icon: <SiCplusplus /> },
-    { name: "HTML", icon: <FaHtml5 /> },
-    { name: "CSS", icon: <FaCss3Alt /> },
+    { name: "HTML5", icon: <FaHtml5 /> },
+    { name: "CSS3", icon: <FaCss3Alt /> },
     { name: "React", icon: <FaReact /> },
     { name: "Node.js", icon: <FaNodeJs /> },
     { name: "JavaScript", icon: <FaJs /> },
@@ -56,9 +56,11 @@ function Skills() {
           {skills.map((skill, index) => (
             <div key={index} className="col-4 col-sm-3 col-md-2">
               <div className="skill-item">
+              <div className="skill-item-content">
                 {skill.icon}
-                <h3>{skill.name}</h3>
-              </div>
+                <h3 className="skill-name">{skill.name}</h3>
+              </div>              
+              </div>              
             </div>
           ))}
         </div>

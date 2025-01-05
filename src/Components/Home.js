@@ -15,13 +15,9 @@ function Home() {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: [
-        "Frontend developer",
-        "Backend developer",
-        "Full Stack Developer",
-      ],
-      typeSpeed: 40,
-      backSpeed: 50,
+      strings: ["SIDDHARTH"],
+      typeSpeed: 150,
+      backSpeed: 80,
       loop: true,
     });
 
@@ -35,14 +31,13 @@ function Home() {
       <div className="container">
         <div className="row align-items-center flex-column-reverse flex-md-row">
           <div className="col-md-6">
-            <h1 className="animated-text">Hello, I'm Siddharth</h1>
+            <h1 className="animated-text">Code. Innovate. Deliver.</h1>
+            <h3 className="hello-text">Hello,</h3>
             <h2 className="typed-text">
-              <span ref={el}></span>
+              I'm&nbsp;<span className="span-text" ref={el}></span>
             </h2>
-            <p className="lead">
-              Aspiring software developer with a solid foundation in Java, C#,
-              Web development and Database. Passionate about enhancing my skills
-              and contributing to innovative solutions in a dynamic environment.
+            <p className="headline-text">
+              Full Stack Developer with a Focus on Modern Web Technologies
             </p>
             <div className="social-link mb-3">
               <a
