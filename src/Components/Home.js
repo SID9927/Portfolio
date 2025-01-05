@@ -65,7 +65,7 @@ function Home() {
                 <FaEnvelope size={30} />
               </a>
             </div>
-            <a href={resume} download className="btn btn-primary btn-lg">
+            <a href={resume} download className="btn btn-neumorphism btn-lg">
               <FaDownload className="me-2" />
               Resume
             </a>
