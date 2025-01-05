@@ -25,6 +25,7 @@ import Education from "./Components/Education";
 import ScrollToTop from "./Components/ScrollToTop";
 import { ThemeProvider, ThemeContext } from "./ThemeContext";
 import Chatbot from './Components/Chatbot/Chatbot';
+import WorkExperience from "./Components/WorkExperience";
 
 
 function FloatingThemeToggle() {
@@ -75,6 +76,17 @@ function App() {
                     onClick={closeNavbar}
                   >
                     Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link"
+                    to="workexperience"
+                    smooth={true}
+                    duration={500}
+                    onClick={closeNavbar}
+                  >
+                    Work Experience
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -138,6 +150,7 @@ function App() {
         </nav>
 
         <Home />
+        <WorkExperience/>
         <Skills />
         <Projects />
         <Education />
