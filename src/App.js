@@ -5,11 +5,9 @@
  *
  * When the floating button is clicked, the `toggleTheme` function is called, which updates the theme in the `ThemeContext` and triggers a re-render of the application with the new theme.
  */
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-scroll";
 import {
-  FaSun,
-  FaMoon,
   FaGithub,
   FaLinkedin,
   FaEnvelope,
@@ -23,19 +21,10 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Education from "./Components/Education";
 import ScrollToTop from "./Components/ScrollToTop";
-import { ThemeProvider, ThemeContext } from "./ThemeContext";
+import { ThemeProvider } from "./ThemeContext";
 import Chatbot from './Components/Chatbot/Chatbot';
 import WorkExperience from "./Components/WorkExperience";
 
-
-function FloatingThemeToggle() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  return (
-    <div onClick={toggleTheme} className="floating-theme-toggle">
-      {theme === "light" ? <FaMoon /> : <FaSun />}
-    </div>
-  );
-}
 
 function App() {
   const closeNavbar = () => {
@@ -188,7 +177,6 @@ function App() {
           </div>
         </footer>
         <ScrollToTop />
-        {/* <FloatingThemeToggle /> */}
         <Chatbot />
       </div>
     </ThemeProvider>
