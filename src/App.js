@@ -188,7 +188,7 @@ function App() {
           </div>
         </footer>
         <ScrollToTop />
-        <FloatingThemeToggle />
+        {/* <FloatingThemeToggle /> */}
         <Chatbot />
       </div>
     </ThemeProvider>

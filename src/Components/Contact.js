@@ -9,13 +9,14 @@
  */
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 function Contact() {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    subject: "",
   });
 
   const handleChange = (e) => {
@@ -39,14 +40,17 @@ function Contact() {
         .send(
           "service_99sid", // Replace with your EmailJS service ID
           "template_cxoahzh", // Replace with your EmailJS template ID
-          formData,
+          {
+            ...formData,
+            subject: formData.subject,
+          },
           "64t-Yu62Af0AXAF-s" // Replace with your EmailJS user ID
         )
         .then((response) => {
           console.log("Email sent successfully:", response);
           alert("Message sent successfully!");
-          setFormData({ name: "", email: "", message: "" });
-          setErrors({}); // Clear any existing errors
+          setFormData({ name: "", email: "", message: "", subject: "" });
+          setErrors({});
         })
         .catch((error) => {
           console.error("Error sending email:", error);
@@ -58,58 +62,108 @@ function Contact() {
     <section id="contact" className="contact-section">
       <div className="container">
         <h2 className="section-title">Contact Me</h2>
+        {/* Contact Details */}
+        <div className="row mb-4">
+          <div className="col text-center neumorphism-card">
+            <FaPhone size={30} className="mb-2 icon" />
+            <div className="contact-label">Mobile</div>
+            <div className="contact-detail">(+91) 9927666062</div>
+          </div>
+          <div className="col text-center neumorphism-card">
+            <FaEnvelope size={30} className="mb-2 icon" />
+            <div className="contact-label">Email</div>
+            <div className="contact-detail">5065sid@gmail.com</div>
+          </div>
+          <div className="col text-center neumorphism-card">
+            <FaMapMarkerAlt size={30} className="mb-2 icon" />
+            <div className="contact-label">Location</div>
+            <div className="contact-detail">Noida, India</div>
+          </div>
+        </div>
+        {/* Contact Email Service */}
         <div className="row">
-          <div className="col-md-6 offset-md-3">
+          <div className="col-md-6">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label htmlFor="name" className="form-label">
-                  Name
-                </label>
                 <input
                   type="text"
-                  className={`form-control ${errors.name ? "is-invalid" : ""}`}
+                  className={`contact form-control ${
+                    errors.name ? "is-invalid" : ""
+                  }`}
                   id="name"
                   name="name"
+                  placeholder="Name"
                   value={formData.name}
                   onChange={handleChange}
                   required
                 />
-                {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+                {errors.name && (
+                  <div className="invalid-feedback">{errors.name}</div>
+                )}
               </div>
               <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email
-                </label>
                 <input
                   type="email"
-                  className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                  className={`contact form-control ${
+                    errors.email ? "is-invalid" : ""
+                  }`}
                   id="email"
                   name="email"
+                  placeholder="E-mail"
                   value={formData.email}
                   onChange={handleChange}
                   required
                 />
-                {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+                {errors.email && (
+                  <div className="invalid-feedback">{errors.email}</div>
+                )}
               </div>
               <div className="mb-3">
-                <label htmlFor="message" className="form-label">
-                  Message
-                </label>
-                <textarea
-                  className={`form-control ${errors.name ? "is-invalid" : ""}`}
-                  id="message"
-                  name="message"
-                  rows="5"
-                  value={formData.message}
+                <input
+                  type="text"
+                  className={`contact form-control ${
+                    errors.subject ? "is-invalid" : ""
+                  }`}
+                  id="subject"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
                   onChange={handleChange}
                   required
-                ></textarea>
-                {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+                />
+                {errors.subject && (
+                  <div className="invalid-feedback">{errors.subject}</div>
+                )}
               </div>
-              <button type="submit" className="btn btn-primary">
-                Send Message
-              </button>
             </form>
+          </div>
+          <div className="col-md-6">
+            <div className="mb-3">
+              <textarea
+                className={`contact contact-textarea form-control ${
+                  errors.message ? "is-invalid" : ""
+                }`}
+                id="message"
+                name="message"
+                placeholder="Message"
+                rows="5"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+              {errors.message && (
+                <div className="invalid-feedback">{errors.message}</div>
+              )}
+            </div>
+            <div className="text-end">
+              <button
+                type="submit"
+                className="btn btn-neumorphism"
+                onClick={handleSubmit}
+              >
+                Send
+              </button>
+            </div>
           </div>
         </div>
       </div>
