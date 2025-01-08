@@ -18,7 +18,7 @@ html {
 }
 
 /* Theme Styles */
-.light {
+body.light {
   --bg-color: #eff0f4;
   --text-color: #333;
   --primary-color: #6c9898;
@@ -26,8 +26,8 @@ html {
   --btn-bgcolor: #006973;
 }
 
-.dark {
-  --bg-color: #000000;
+body.dark {
+  --bg-color: #2B2C2F;
   --text-color: #ecf0f1;
   --primary-color: #82cdf2;
   --secondary-color: #049be5;
@@ -554,7 +554,7 @@ section {
   bottom: 70px;
   right: 20px;
   background: var(--primary-color);
-  color: white;
+  color: var(--bg-color);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -562,20 +562,21 @@ section {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: all 0.3s ease;
   z-index: 1000;
 }
 
-.scroll-to-top.visible {
-  opacity: 1;
+.scroll-to-top:hover {
+  transform: scale(1.1);
+  background: var(--secondary-color);
 }
 
-/* .floating-theme-toggle {
+.theme-toggle {
   position: fixed;
   top: 70px;
   right: 20px;
   background: var(--primary-color);
-  color: white;
+  color: var(--bg-color);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -587,11 +588,12 @@ section {
   z-index: 1001;
   outline: none;
   box-shadow: none;
-} */
+}
 
-/* .floating-theme-toggle:hover {
+.theme-toggle:hover {
+  transform: scale(1.1);
   background-color: var(--secondary-color);
-} */
+}
 
 .modal-content {
   background-color: var(--bg-color);
@@ -704,3 +706,166 @@ section {
   color: var(--secondary-color);
 }
 
+.project-card .button-container .btn-neumorphism {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body.dark .skill-item,
+body.dark .project-card,
+body.dark .modal-content,
+body.dark .btn-neumorphism,
+body.dark .contact,
+body.dark .nav-link,
+body.dark .neumorphism-card,
+body.dark .home-section .social-link a,
+body.dark .footer-social-links a {
+  box-shadow: 3px 3px 3px #222327, -3px -3px 3px #363636;
+}
+
+body.dark .skill-item:hover,
+body.dark .project-card:hover,
+body.dark .btn-neumorphism:hover,
+body.dark .contact:focus,
+body.dark .nav-link:hover,
+body.dark .home-section .social-link a:hover,
+body.dark .footer-social-links a:hover {
+  color: var(--secondary-color);
+  box-shadow: inset 3px 3px 3px #222327, inset -3px -3px 3px #363636;
+}
+
+
+
+body.dark .modal-footer .btn-neumorphism:hover {
+  background: var(--bg-color);
+  box-shadow: inset 3px 3px 3px #222327, inset -3px -3px 3px #363636;
+}
+
+body.dark .button-container .btn-small,
+body.dark .btn-neumorphism {
+  color: var(--text-color);
+}
+
+body.dark .btn-neumorphism.btn-primary {
+  color: var(--primary-color);
+}
+
+body.dark .project-card .button-container .btn-neumorphism {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  box-shadow: 3px 3px 3px #222327, -3px -3px 3px #363636;
+}
+
+body.dark .project-card .button-container .btn-neumorphism:hover {
+  color: var(--primary-color);
+  box-shadow: inset 3px 3px 3px #222327, inset -3px -3px 3px #363636;
+}
+
+
+body.dark .contact::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+body.dark .contact {
+  color: var(--text-color);
+}
+
+body.dark .education-card {
+  background-color: #2B2C2F;
+}
+
+body.dark .information-row {
+  background-color: #2B2C2F;
+}
+
+body.dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+body.dark .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .modal-title {
+  color: var(--primary-color);
+}
+
+body.dark .modal-content {
+  background-color: #2B2C2F;
+  box-shadow: 3px 3px 3px #222327, -3px -3px 3px #363636;
+}
+
+body.dark .modal-header,
+body.dark .modal-footer {
+  background-color: #2B2C2F;
+  border-color: #363636;
+}
+
+body.dark .model-description {
+  color: var(--text-color);
+}
+
+.modal-footer .btn-neumorphism {
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.modal-footer .btn-neumorphism:hover {
+  color: var(--primary-color);
+}
+
+body.dark .modal-footer .btn-neumorphism {
+  background-color: #2B2C2F;
+  color: var(--bg-color);
+  box-shadow: 3px 3px 3px #222327, -3px -3px 3px #363636;
+}
+
+body.dark .modal-footer .btn-neumorphism:hover {
+  background-color: #2B2C2F;
+  color: var(--primary-color);
+  box-shadow: inset 3px 3px 3px #222327, inset -3px -3px 3px #363636;
+}
+
+body.dark .model-description {
+  color: var(--text-color);
+}
+
+body.dark .model-description {
+  color: white;
+}
+
+.model-description::-webkit-scrollbar {
+  width: 8px;
+}
+
+.model-description::-webkit-scrollbar-track {
+  background: var(--bg-color);;
+}
+
+.model-description::-webkit-scrollbar-thumb {
+  background: #d6d0d0a3;
+  border-radius: 4px;
+}
+
+.model-description::-webkit-scrollbar-thumb:hover {
+  background: #918d8dc9;
+}
+
+body.dark .model-description::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.dark .model-description::-webkit-scrollbar-track {
+  background: #2B2C2F;
+}
+
+body.dark .model-description::-webkit-scrollbar-thumb {
+  background: #363636;
+  border-radius: 4px;
+}
+
+body.dark .model-description::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}

@@ -19,7 +19,7 @@ const WorkExperience = () => {
               interactive frontends using React.js.
             </p>
             <p>
-              During my PG-DAC program at C-DAC, Mumbai, I led the frontend
+              During my <strong>PG-DAC</strong> program at C-DAC, Mumbai, I led the frontend
               development of <strong>Farmer-Marketplace</strong>, a platform empowering farmers
               by eliminating middlemen. Built with Java, Spring Boot, ASP.NET
               Core, React.js, and MySQL, this project sharpened my technical,

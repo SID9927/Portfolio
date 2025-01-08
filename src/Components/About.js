@@ -12,19 +12,41 @@ function About() {
         <div className="row justify-content-center">
           <div className="col-md-8 text-center">
             <p>
-              Hi, I'm Siddharth! I'm a recent PG-DAC graduate from CDAC Mumbai
-              with a keen passion for software development. I bring a strong
-              foundation in C++, Java, .NET, MySQL, and frontend technologies.
-              My journey into tech took a significant turn after three years of
-              preparing for government exams, where I developed essential skills
-              in time management, problem-solving, and meticulous attention to
-              detail.
+              Hi, I'm Siddharth! I have recently completed my{" "}
+              <strong>
+                Post Graduate Diploma in Advanced Computing (PG-DAC)
+              </strong>{" "}
+              from <strong>CDAC Mumbai</strong>, with a strong passion for
+              software development. I also hold a Master's (M.Sc.) and
+              Bachelor's (B.Sc.) degree in Computer Science. I bring a solid
+              foundation in{" "}
+              <strong>
+                <em>Java, .NET, MySQL, MongoDB</em>
+              </strong>{" "}
+              and{" "}
+              <strong>
+                <em>frontend technologies</em>
+              </strong>.
             </p>
             <p>
-              I’ve also completed a .NET Full Stack Development certification
-              from Ducat IT School, Noida. Currently, I'm diving deep into web
-              development with a focus on React, alongside my experience with
-              HTML, CSS, Bootstrap, jQuery, and JavaScript.
+                My journey into tech took a significant turn after three years
+                of preparing for government exams, where I developed essential
+                skills in time management, problem-solving and meticulous
+                attention to detail.
+              </p>
+            <p>
+              I’ve also completed a{" "}
+              <strong>.NET Full Stack Development Certification</strong> from{" "}
+              <strong>Ducat IT School, Noida</strong>, Where I'm diving deep
+              into web development with a focus on{" "}
+              <strong>
+                <em>React</em>
+              </strong>
+              , alongside my experience with{" "}
+              <strong>
+                <em>HTML, CSS, Bootstrap, jQuery, and JavaScript</em>
+              </strong>
+              .
             </p>
             <p>
               My dedication to learning drives me to create something new every
@@ -33,7 +55,7 @@ function About() {
               development role.
             </p>
             <p>
-              Looking for exciting opportunities to contribute to innovative
+              I'm looking for exciting opportunities to contribute to innovative
               projects and connect with like-minded professionals in the tech
               industry.
             </p>

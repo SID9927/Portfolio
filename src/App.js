@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./Components/Home";
@@ -15,6 +15,16 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    document.body.className = isDarkMode ? "dark" : "light";
+  }, [isDarkMode]);
+
   return (
     <ThemeProvider>
       <div>
@@ -27,6 +37,9 @@ function App() {
         <About />
         <Contact />
         <Footer />
+        <div className="theme-toggle" onClick={toggleTheme}>
+        {isDarkMode ? "☀️" : "🌙"}
+      </div>
         <ScrollToTop />
         <Chatbot />
       </div>

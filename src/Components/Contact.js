@@ -1,12 +1,3 @@
-/**
- * The `Contact` component provides a contact form that allows users to send an email message to the website owner.
- *
- * The component uses the `emailjs-com` library to send the email message. It includes form fields for the user's name, email, and message, and performs client-side validation to ensure that all required fields are filled out correctly.
- *
- * When the user submits the form, the `handleSubmit` function is called, which first validates the form data using the `validateForm` function. If the form is valid, it sends the email using the `emailjs.send` method, and displays a success message to the user. If there is an error sending the email, an error message is displayed instead.
- *
- * The component also includes some basic styling using Bootstrap classes.
- */
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
@@ -82,8 +73,8 @@ function Contact() {
         </div>
         {/* Contact Email Service */}
         <div className="row">
-          <div className="col-md-6">
-            <form onSubmit={handleSubmit}>
+          <div className="col-md-6 ">
+            <form onSubmit={handleSubmit} className="information-row">
               <div className="mb-3">
                 <input
                   type="text"
