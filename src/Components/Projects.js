@@ -120,7 +120,8 @@ function Projects() {
       image: project4,
       link: "",
       category: "Backend",
-      gitLink: "https://github.com/SID9927/JWT_Authentication_Authorization_Service.git",
+      gitLink:
+        "https://github.com/SID9927/JWT_Authentication_Authorization_Service.git",
     },
   ];
 
@@ -150,7 +151,7 @@ function Projects() {
         <div className="project-filters mb-4">
           <button
             onClick={() => setFilter("all")}
-            className={`btn ${
+            className={`btn btn-neumorphism ${
               filter === "all" ? "btn-primary" : "btn-outline-primary"
             } me-2`}
           >
@@ -158,7 +159,7 @@ function Projects() {
           </button>
           <button
             onClick={() => setFilter("Frontend")}
-            className={`btn ${
+            className={`btn btn-neumorphism ${
               filter === "Frontend" ? "btn-primary" : "btn-outline-primary"
             } me-2`}
           >
@@ -166,7 +167,7 @@ function Projects() {
           </button>
           <button
             onClick={() => setFilter("Backend")}
-            className={`btn ${
+            className={`btn btn-neumorphism ${
               filter === "Backend" ? "btn-primary" : "btn-outline-primary"
             } me-2`}
           >
@@ -174,7 +175,7 @@ function Projects() {
           </button>
           <button
             onClick={() => setFilter("Full Stack")}
-            className={`btn ${
+            className={`btn btn-neumorphism ${
               filter === "Full Stack" ? "btn-primary" : "btn-outline-primary"
             } me-2`}
           >
@@ -183,29 +184,31 @@ function Projects() {
         </div>
         <div className="row">
           {filteredProjects.map((project, index) => (
-            <div key={index} className="col-md-4 mb-4">
+            <div key={index} className="col-md-3 mb-3">
               <div className="project-card">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="img-fluid"
-                  style={{ height: "250px", width: "100%" }}
                 />
                 <div className="project-info">
                   <h3>{project.title}</h3>
                   <p>{project.description.substring(0, 100)}...</p>
+                </div>
+                <div className="button-container">
                   <Button
                     onClick={() => openModal(project)}
-                    className="btn btn-primary me-2"
+                    className="btn btn-small btn-neumorphism me-2"
                   >
                     View Details
                   </Button>
-                  {(project.category === "Full Stack" || project.category === "Backend") ? (
+                  {project.category === "Full Stack" ||
+                  project.category === "Backend" ? (
                     <a
                       href={project.gitLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-outline-primary"
+                      className="btn btn-small btn-neumorphism"
                     >
                       GitHub
                     </a>
@@ -214,7 +217,7 @@ function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-outline-primary"
+                      className="btn btn-small btn-neumorphism"
                     >
                       Live Demo
                     </a>
@@ -228,8 +231,8 @@ function Projects() {
       <Modal
         show={showModal}
         onHide={() => setShowModal(false)}
-        size="lg"
-        className={`themed-modal ${theme}`}
+        size="s"
+        className={`themed-modal ${theme} `}
       >
         <Modal.Header closeButton>
           <Modal.Title>{selectedProject?.title}</Modal.Title>
@@ -245,19 +248,19 @@ function Projects() {
               playsInline
             />
           )}
-          <div style={{ maxHeight: "250px", overflowY: "auto" }}>
+          <div style={{ maxHeight: "250px", overflowY: "auto" }} className="model-description">
             {renderDescription(selectedProject?.description)}
           </div>{" "}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+          <Button onClick={() => setShowModal(false)} className="btn-neumorphism">
             Close
           </Button>
           <a
             href={selectedProject?.gitLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary"
+            className="btn btn-neumorphism"
           >
             GitHub
           </a>
