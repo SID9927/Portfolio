@@ -63,17 +63,17 @@ function Contact() {
         {/* Contact Details */}
         <div className="row mb-4">
           <div className="col text-center neumorphism-card">
-            <FaPhone size={30} className="mb-2 icon" />
+            <FaPhone size={25} className="mb-2 icon" />
             <div className="contact-label">Mobile</div>
             <div className="contact-detail">(+91) 9927666062</div>
           </div>
           <div className="col text-center neumorphism-card">
-            <FaEnvelope size={30} className="mb-2 icon" />
+            <FaEnvelope size={25} className="mb-2 icon" />
             <div className="contact-label">Email</div>
             <div className="contact-detail">5065sid@gmail.com</div>
           </div>
           <div className="col text-center neumorphism-card">
-            <FaMapMarkerAlt size={30} className="mb-2 icon" />
+            <FaMapMarkerAlt size={25} className="mb-2 icon" />
             <div className="contact-label">Location</div>
             <div className="contact-detail">Noida, India</div>
           </div>
@@ -153,7 +153,7 @@ function Contact() {
                 <div className="invalid-feedback">{errors.message}</div>
               )}
             </div>
-            <div className="text-end">
+            <div className="text-end send-button-container">
               <button
                 type="submit"
                 className="btn btn-neumorphism"

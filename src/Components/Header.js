@@ -47,7 +47,7 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          className="offcanvas offcanvas-end"
+          className="offcanvas offcanvas-end custom-offcanvas"
           tabindex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"

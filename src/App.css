@@ -747,6 +747,10 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
     border-radius: 5px;
   }
 
+  .custom-offcanvas {
+    opacity: 1;
+  }
+
   .navbar-nav .nav-item {
     margin: 5px 0;
   }
@@ -755,9 +759,13 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
   .home-section {
     height: auto;
     min-height: 100vh;
-    padding-top: 80px;
+    padding-top: 5px;
     padding-bottom: 40px;
     text-align: center;
+  }
+
+  .animated-text {
+    font-size: 1.5rem;
   }
 
   .profile-image-container {
@@ -768,13 +776,34 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
   }
 
   .profile-image {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 20px;
   }
 
-  .animated-text {
-    font-size: 2rem;
+  .typed-text {
+    font-size: 2.5rem;
+  }
+
+  .headline-text {
+    font-size: 1rem;
+  }
+
+  .social-link {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-neumorphism {
+    display: block;
+    margin: 20px auto;
+  }
+
+  /* Work Experience */
+  .workexperience-section p {
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: justify;
   }
 
   /* Skills Section */
@@ -783,6 +812,7 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
   }
 
   .skills-section .row {
+    padding-left: 15px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -803,6 +833,49 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
 
   .skill-item h3 {
     font-size: 0.9rem;
+  }
+
+  /* Project Section */
+  .project-filters {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .project-filters button {
+    flex: 1;
+    min-width: 100px;
+    margin-bottom: 5px;
+  }
+
+  /* Model */
+  .modal-content {
+    margin: auto;
+    top: 50%;
+    transform: translateY(10%);
+  }
+
+  /* Education Section */
+  .education-card h4 {
+    font-weight: bold;
+  }
+
+  .education-card h5 {
+    font-weight: 500;
+  }
+
+  .education-year {
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.8;
+  }
+
+  /* About Section */
+  .about-section p {
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: justify;
   }
 
   /* Other Sections */
@@ -827,10 +900,28 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
     left: 0;
   }
 
+  /* Education Section */
+  .neumorphism-card {
+    padding: 8px;
+    margin: 5px;
+    font-size: 0.7rem;
+    margin: 0px 10px;
+  }
+
+  .neumorphism-card .contact-label,
+  .neumorphism-card .contact-detail {
+    font-size: 9px;
+  }
+
   /* Footer */
   .footer .col-md-6:first-child {
     text-align: center;
-    margin-bottom: 10px;
+  }
+
+  .footer-social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
   }
 }
 
