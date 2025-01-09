@@ -11,7 +11,13 @@ function Contact() {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
   };
 
   const validateForm = () => {
@@ -19,6 +25,7 @@ function Contact() {
     if (!formData.name.trim()) tempErrors.name = "Name is required";
     if (!/\S+@\S+\.\S+/.test(formData.email))
       tempErrors.email = "Email is invalid";
+    if (!formData.subject.trim()) tempErrors.subject = "Subject is required";
     if (!formData.message.trim()) tempErrors.message = "Message is required";
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;

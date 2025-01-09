@@ -9,7 +9,7 @@ import Contact from "./Components/Contact";
 import Education from "./Components/Education";
 import ScrollToTop from "./Components/ScrollToTop";
 import { ThemeProvider } from "./ThemeContext";
-import Chatbot from "./Components/Chatbot/Chatbot";
+// import Chatbot from "./Components/Chatbot/Chatbot";
 import WorkExperience from "./Components/WorkExperience";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -38,10 +38,10 @@ function App() {
         <Contact />
         <Footer />
         <div className="theme-toggle" onClick={toggleTheme}>
-        {isDarkMode ? "☀️" : "🌙"}
-      </div>
+          {isDarkMode ? "☀️" : "🌙"}
+        </div>
         <ScrollToTop />
-        <Chatbot />
+        {/* <Chatbot /> */}
       </div>
     </ThemeProvider>
   );
