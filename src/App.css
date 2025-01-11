@@ -743,7 +743,6 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
   /* Navigation */
   .navbar-nav {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
     border-radius: 5px;
   }
 
@@ -759,7 +758,6 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
   .home-section {
     height: auto;
     min-height: 100vh;
-    padding-top: 5px;
     padding-bottom: 40px;
     text-align: center;
   }
