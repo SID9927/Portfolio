@@ -6,7 +6,7 @@ const WorkExperience = () => {
       <div className="container">
         <h2 className="section-title">Work Experience</h2>
         <div className="row justify-content-center">
-          <div className="col-md-8 text-center">
+          <div className="col-md-10 text-center">
             <p>
               I am a skilled full-stack web developer with practical experience
               gained through internships, academic projects, and independent

@@ -10,7 +10,7 @@ function About() {
       <div className="container">
         <h2 className="section-title">About Me</h2>
         <div className="row justify-content-center">
-          <div className="col-md-8 text-center">
+          <div className="col-md-10 text-center">
             <p>
               Hi, I'm Siddharth! I have recently completed my{" "}
               <strong>

@@ -184,7 +184,7 @@ function Projects() {
         </div>
         <div className="row">
           {filteredProjects.map((project, index) => (
-            <div key={index} className="col-md-3 mb-3">
+            <div key={index} className="col-md-3 mb-3 project-view">
               <div className="project-card">
                 <img
                   src={project.image}
