@@ -737,7 +737,7 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
 }
 
 /* ==========================================================================
-   16. Media Queries
+   16. Media Queries for Mobile
    ========================================================================== */
 @media (max-width: 768px) {
   /* Navigation */
@@ -1057,8 +1057,6 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
     line-height: 1.4;
     text-align: justify;
   }
-
-  
 }
 
 /* Animations */
