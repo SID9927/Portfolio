@@ -23,6 +23,7 @@ function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState("all");
   const { theme } = useContext(ThemeContext);
+  
 
   const projects = [
     {
@@ -185,7 +186,7 @@ function Projects() {
         <div className="row">
           {filteredProjects.map((project, index) => (
             <div key={index} className="col-md-3 mb-3 project-view">
-              <div className="project-card">
+              <div className="project-card block">
                 <img
                   src={project.image}
                   alt={project.title}
