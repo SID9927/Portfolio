@@ -1,9 +1,3 @@
-/**
- * The `Home` component represents the home section of the application.
- * It displays the user's profile image, name, job titles, and a brief description.
- * It also includes links to the user's GitHub, LinkedIn, and email, as well as a download link for the user's resume.
- * The component uses the `Typed.js` library to create a typing effect for the job titles.
- */
 import React, { useEffect, useRef } from "react";
 import { FaDownload, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import profileImage from "../media/sid.jpeg";
@@ -66,7 +60,7 @@ function Home() {
             </a>
           </div>
           <div className="col-md-6">
-            <div className="profile-image-container ">
+            <div className="profile-image-container">
               <img
                 src={profileImage}
                 alt="Siddharth"
