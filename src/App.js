@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { IoMoonOutline, IoSunny } from "react-icons/io5";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./Components/Home";
@@ -38,7 +39,7 @@ function App() {
         <Contact />
         <Footer />
         <div className="theme-toggle" onClick={toggleTheme}>
-          {isDarkMode ? "☀️" : "🌙"}
+        {isDarkMode ? <IoSunny /> : <IoMoonOutline />}
         </div>
         <ScrollToTop />
         {/* <Chatbot /> */}

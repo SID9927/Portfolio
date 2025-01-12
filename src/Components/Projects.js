@@ -149,7 +149,7 @@ function Projects() {
     <section id="projects" className="projects-section">
       <div className="container">
         <h2 className="section-title">Projects</h2>
-        <div className="project-filters mb-4">
+        <div className="project-filters mb-4 block-left">
           <button
             onClick={() => setFilter("all")}
             className={`btn btn-neumorphism ${
@@ -186,7 +186,7 @@ function Projects() {
         <div className="row">
           {filteredProjects.map((project, index) => (
             <div key={index} className="col-md-3 mb-3 project-view">
-              <div className="project-card block">
+              <div className="project-card block-up">
                 <img
                   src={project.image}
                   alt={project.title}

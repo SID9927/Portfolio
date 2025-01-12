@@ -1070,10 +1070,10 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
   }
 }
 
-@keyframes appear {
+@keyframes UpAppear {
   from {
     opacity: 0;
-    transform: scale(0.7);
+    transform: scale(0.5);
   }
   to {
     opacity: 1;
@@ -1081,8 +1081,86 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.block {
-  animation: appear linear; 
+@keyframes RightAppear {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes LeftAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.block-up {
+  animation: UpAppear linear; 
   animation-timeline: view(); 
   animation-range: entry 0% cover 40%;
+}
+
+.block-right{
+  animation: RightAppear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.block-left{
+  animation: LeftAppear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%); 
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(0); 
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%); 
+    opacity: 0; 
+  }
+}
+
+.scroll-to-top{
+  animation: slide-up 0.5s forwards; 
+}
+.scroll-to-top.hide{
+  animation: slide-down 0.5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-down {
+  animation: slideDown 0.5s forwards;
 }

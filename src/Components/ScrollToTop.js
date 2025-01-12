@@ -1,27 +1,27 @@
-/**
- * A React component that renders a "Scroll to Top" button that appears when the user scrolls down past a certain threshold.
- *
- * When the button is clicked, the component smoothly scrolls the page back to the top.
- */
 import React, { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
 function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
         setIsVisible(true);
+        setIsHidden(false);
       } else {
-        setIsVisible(false);
+        if (isVisible) {
+          setIsHidden(true);
+          setTimeout(() => setIsVisible(false), 500); 
+        }
       }
     };
 
     window.addEventListener("scroll", toggleVisibility);
 
     return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+  }, [isVisible]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -33,7 +33,7 @@ function ScrollToTop() {
   return (
     <>
       {isVisible && (
-        <div onClick={scrollToTop} className="scroll-to-top">
+        <div onClick={scrollToTop} className={`scroll-to-top ${isHidden ? 'hide' : ''}`}>
           <FaArrowUp />
         </div>
       )}

@@ -54,9 +54,9 @@ function Skills() {
         <h2 className="section-title">Skills</h2>
         <div className="row">
           {skills.map((skill, index) => (
-            <div key={index} className="col-4 col-sm-3 col-md-2">
+            <div key={index} className="col-4 col-sm-3 col-md-2 ">
               <div className="skill-item">
-              <div className="skill-item-content">
+              <div className="skill-item-content block-up">
                 {skill.icon}
                 <h3 className="skill-name">{skill.name}</h3>
               </div>              

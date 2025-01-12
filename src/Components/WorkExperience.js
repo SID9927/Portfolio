@@ -7,7 +7,7 @@ const WorkExperience = () => {
         <h2 className="section-title">Work Experience</h2>
         <div className="row justify-content-center">
           <div className="col-md-10 text-center">
-            <p>
+            <p className="block-up">
               &nbsp;&nbsp;&nbsp;&nbsp;I am a skilled full-stack web developer
               with practical experience gained through internships, academic
               projects, and independent initiatives. At{" "}
@@ -20,7 +20,7 @@ const WorkExperience = () => {
               backend systems, and building interactive frontends using
               React.js.
             </p>
-            <p>
+            <p className="block-up">
               &nbsp;&nbsp;&nbsp;&nbsp;During my <strong>PG-DAC</strong> program
               at C-DAC, Mumbai, I led the frontend development of{" "}
               <strong>Farmer-Marketplace</strong>, a platform empowering farmers
@@ -28,7 +28,7 @@ const WorkExperience = () => {
               Core, React.js, and MySQL, this project sharpened my technical,
               leadership, and collaboration skills.
             </p>
-            <p>
+            <p className="block-up">
               &nbsp;&nbsp;&nbsp;&nbsp;I’m also dedicated to personal
               development, building small-scale projects to refine my
               understanding of cutting-edge technologies and best practices.

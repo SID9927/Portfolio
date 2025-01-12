@@ -40,7 +40,7 @@ function Education() {
     <section id="education" className="education-section">
       <div className="container">
         <h3 className="section-title">Education</h3>
-        <div className="education-timeline">
+        <div className="education-timeline ">
           {education.map((item, index) => (
             <div
               key={index}
@@ -48,7 +48,7 @@ function Education() {
                 index % 2 === 0 ? "" : "flex-row-reverse"
               }`}
             >
-              <div className="col-md-6 education-content">
+              <div className="col-md-6 education-content block-right">
                 <div
                   className={`education-card ${
                     index % 2 === 0 ? "left" : "right"

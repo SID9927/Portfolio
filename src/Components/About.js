@@ -11,7 +11,7 @@ function About() {
         <h2 className="section-title">About Me</h2>
         <div className="row justify-content-center">
           <div className="col-md-10 text-center">
-            <p>
+            <p className="block-up">
               &nbsp;&nbsp;&nbsp;&nbsp;Hi, I'm Siddharth! I have recently
               completed my{" "}
               <strong>
@@ -30,13 +30,13 @@ function About() {
               </strong>
               .
             </p>
-            <p>
+            <p className="block-up">
               &nbsp;&nbsp;&nbsp;&nbsp;My journey into tech took a significant
               turn after three years of preparing for government exams, where I
               developed essential skills in time management, problem-solving and
               meticulous attention to detail.
             </p>
-            <p>
+            <p className="block-up">
               &nbsp;&nbsp;&nbsp;&nbsp;I’ve also completed a{" "}
               <strong>.NET Full Stack Development Certification</strong> from{" "}
               <strong>Ducat IT School, Noida</strong>, Where I'm diving deep
@@ -50,13 +50,13 @@ function About() {
               </strong>
               .
             </p>
-            <p>
+            <p className="block-up">
               &nbsp;&nbsp;&nbsp;&nbsp;My dedication to learning drives me to
               create something new every day and continuously expand my
               knowledge. I'm eager to apply my diverse skill set and passion for
               coding in a challenging software development role.
             </p>
-            <p>
+            <p className="block-up">
               &nbsp;&nbsp;&nbsp;&nbsp;I'm looking for exciting opportunities to
               contribute to innovative projects and connect with like-minded
               professionals in the tech industry.

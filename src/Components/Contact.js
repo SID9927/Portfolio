@@ -61,7 +61,7 @@ function Contact() {
       <div className="container">
         <h2 className="section-title">Contact Me</h2>
         {/* Contact Details */}
-        <div className="row mb-4">
+        <div className="row mb-4 block-up">
           <div className="col text-center neumorphism-card">
             <FaPhone size={25} className="mb-2 icon" />
             <div className="contact-label">Mobile</div>
@@ -81,7 +81,7 @@ function Contact() {
         {/* Contact Email Service */}
         <div className="row">
           <div className="col-md-6 ">
-            <form onSubmit={handleSubmit} className="information-row">
+            <form onSubmit={handleSubmit} className="information-row block-left">
               <div className="mb-3">
                 <input
                   type="text"
@@ -136,7 +136,7 @@ function Contact() {
             </form>
           </div>
           <div className="col-md-6">
-            <div className="mb-3">
+            <div className="mb-3 block-right">
               <textarea
                 className={`contact contact-textarea form-control ${
                   errors.message ? "is-invalid" : ""
@@ -153,7 +153,7 @@ function Contact() {
                 <div className="invalid-feedback">{errors.message}</div>
               )}
             </div>
-            <div className="text-end send-button-container">
+            <div className="text-end send-button-container block-up">
               <button
                 type="submit"
                 className="btn btn-neumorphism"

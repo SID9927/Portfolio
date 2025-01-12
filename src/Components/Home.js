@@ -66,7 +66,7 @@ function Home() {
             </a>
           </div>
           <div className="col-md-6">
-            <div className="profile-image-container">
+            <div className="profile-image-container ">
               <img
                 src={profileImage}
                 alt="Siddharth"
