@@ -1,11 +1,3 @@
-/**
- * The `Skills` component displays a section with a list of the developer's technical skills, represented by icons and skill names.
- *
- * The component maps over an array of skill objects, each containing a name and an icon, and renders a grid of skill items.
- * The skill icons are imported from the `react-icons` library, which provides a wide range of popular programming language and technology icons.
- *
- * This component is intended to be used within a larger application or website to showcase the developer's technical expertise and proficiency.
- */
 import React from "react";
 import {
   FaJava,

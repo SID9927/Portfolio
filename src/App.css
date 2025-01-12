@@ -1103,7 +1103,13 @@ body.dark .model-description::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.block-up {
+/* .block-up {
+  animation: UpAppear linear; 
+  animation-timeline: view(); 
+  animation-range: entry 0% cover 40%;
+} */
+
+.skill-item-content.block-up {
   animation: UpAppear linear; 
   animation-timeline: view(); 
   animation-range: entry 0% cover 40%;
