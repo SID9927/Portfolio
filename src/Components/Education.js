@@ -1,10 +1,3 @@
-/**
- * Renders an Education section component that displays the user's educational background.
- *
- * The component maps over an array of education objects, each containing information about a degree, school, and graduation year. It renders these items in a timeline layout, alternating the position of the content between left and right.
- *
- * @returns {JSX.Element} The rendered Education section component.
- */
 import React from "react";
 
 function Education() {
