@@ -352,6 +352,23 @@ section {
   color: var(--secondary-color);
 }
 
+@keyframes UpAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.project-card{
+  animation: UpAppear linear; 
+  animation-timeline: view(); 
+  animation-range: entry 0% cover 40%;
+}
+
 /* ==========================================================================
    11. Education Section Styles
    ========================================================================== */

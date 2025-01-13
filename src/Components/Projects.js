@@ -1,11 +1,3 @@
-/**
- * The `Projects` component displays a section showcasing the user's projects. It allows filtering projects by category (web or full-stack) and provides a modal for displaying detailed information about each project.
- *
- * The component uses the `ThemeContext` to apply the appropriate theme styles to the modal.
- *
- * @returns {JSX.Element} The rendered `Projects` component.
- */
-
 import React, { useState, useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { ThemeContext } from "../ThemeContext";
@@ -13,17 +5,20 @@ import newsVideo from "../media/NewsWebsite.mp4";
 import loginVideo from "../media/login.mp4";
 import farmerMarketvideo from "../media/Farmermarket.mp4";
 import authservicevideo from "../media/AuthService.mp4";
+import airbnbVideo from "../media/Airbnb.mp4";
+import BlogPlatformVideo from "../media/BlogPlatform.mp4";
 import project1 from "../media/project1.png";
 import project2 from "../media/project2.png";
 import project3 from "../media/project3.png";
-import project4 from "../media/project4.webp";
+import project4 from "../media/project4.webp"; 
+import Airbnb from "../media/Airbnb.png";
+import BlogPlatform from "../media/BlogPlateform.png"
 
 function Projects() {
   const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState("all");
   const { theme } = useContext(ThemeContext);
-  
 
   const projects = [
     {
@@ -124,6 +119,78 @@ function Projects() {
       gitLink:
         "https://github.com/SID9927/JWT_Authentication_Authorization_Service.git",
     },
+    {
+      title: "Airbnb Landing Page Clone",
+      description: `A responsive and modern Airbnb landing page clone that showcases property listings and categories. This project demonstrates my frontend development skills and ability to create pixel-perfect, responsive user interfaces.
+  
+      \n**Key features include:**\n
+  
+      • Responsive navigation bar with search functionality
+      • Dynamic property listings and categories
+      • Hero section with background image
+      • Mobile-first responsive design
+      • Interactive UI elements and hover effects
+      • Footer with multiple sections
+      • Dynamic content rendering using JavaScript
+      • Custom CSS animations and transitions
+      • Mobile search bar for smaller screens
+      • Flexible grid layouts for listings and categories
+  
+      \n**Tech stack:**\n
+  
+      • HTML5 for semantic markup
+      • CSS3 with modern features like Grid and Flexbox
+      • Vanilla JavaScript for dynamic content
+      • Font Awesome for icons
+      • Google Fonts integration
+      • Mobile-first responsive design principles
+  
+      This project showcases my frontend development capabilities, including responsive design implementation, modern CSS practices, and JavaScript DOM manipulation. It demonstrates my attention to detail in recreating complex UI components and ensuring cross-device compatibility.`,
+
+      video: airbnbVideo,
+      image: Airbnb,
+      link: "",
+      category: "Frontend",
+      gitLink: "https://github.com/SID9927/Brainwave_Matrix_Intern",
+    },
+    {
+      "title": "Blog Platform",
+      "description": `A modern and feature-rich blogging platform built with the MERN stack that enables users to create, manage, and interact with blog content. This project demonstrates full-stack development capabilities with secure user authentication and real-time interactions.
+  
+      \n**Key features include:**\n
+  
+      • User authentication with JWT and secure password hashing
+      • Create, edit, and delete blog posts
+      • Comment system with real-time updates
+      • User profiles and authorization
+      • Responsive design for all devices
+      • RESTful API architecture
+      • MongoDB database integration
+      • Protected routes and middleware
+      • Error handling and validation
+      • Populate relationships between models
+  
+      \n**Tech stack:**\n
+  
+      • MongoDB for database management
+      • Express.js for backend API development
+      • React.js for frontend user interface
+      • Node.js for server-side runtime
+      • JWT for secure authentication
+      • Bcrypt for password encryption
+      • Mongoose for database modeling
+      • RESTful API principles
+      • CORS for cross-origin resource sharing
+      • Environment variables for configuration
+  
+      This project showcases full-stack development expertise, including database design, API development, authentication implementation, and frontend user interface creation. It demonstrates the ability to build secure, scalable, and user-friendly web applications using modern web technologies.`,
+  
+      "video": BlogPlatformVideo,
+      "image": BlogPlatform,
+      "link": "",
+      "category": "Full Stack",
+      "gitLink": "https://github.com/SID9927/Brainwave_Matrix_Intern"
+  }
   ];
 
   const renderDescription = (description) => {
@@ -185,8 +252,8 @@ function Projects() {
         </div>
         <div className="row">
           {filteredProjects.map((project, index) => (
-            <div key={index} className="col-md-3 mb-3 project-view">
-              <div className="project-card block-up">
+            <div key={index} className="col-md-3 mb-5 project-view">
+              <div className="project-card">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -203,17 +270,7 @@ function Projects() {
                   >
                     View Details
                   </Button>
-                  {project.category === "Full Stack" ||
-                  project.category === "Backend" ? (
-                    <a
-                      href={project.gitLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-small btn-neumorphism"
-                    >
-                      GitHub
-                    </a>
-                  ) : (
+                  {project.link ? ( 
                     <a
                       href={project.link}
                       target="_blank"
@@ -222,7 +279,16 @@ function Projects() {
                     >
                       Live Demo
                     </a>
-                  )}
+                  ) : project.gitLink ? ( 
+                    <a
+                      href={project.gitLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-small btn-neumorphism"
+                    >
+                      GitHub
+                    </a>
+                  ) : null} 
                 </div>
               </div>
             </div>
@@ -249,12 +315,18 @@ function Projects() {
               playsInline
             />
           )}
-          <div style={{ maxHeight: "250px", overflowY: "auto" }} className="model-description">
+          <div
+            style={{ maxHeight: "250px", overflowY: "auto" }}
+            className="model-description"
+          >
             {renderDescription(selectedProject?.description)}
           </div>{" "}
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => setShowModal(false)} className="btn-neumorphism">
+          <Button
+            onClick={() => setShowModal(false)}
+            className="btn-neumorphism"
+          >
             Close
           </Button>
           <a
