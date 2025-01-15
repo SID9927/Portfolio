@@ -13,12 +13,12 @@ import {
   SiCplusplus,
   SiMysql,
   SiMongodb,
-  SiCsharp,
   SiDotnet,
   SiSpring,
   SiHibernate,
   SiPostman,
 } from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
 
 function Skills() {
   const skills = [
@@ -31,7 +31,7 @@ function Skills() {
     { name: "JavaScript", icon: <FaJs /> },
     { name: "MySQL", icon: <SiMysql /> },
     { name: "MongoDB", icon: <SiMongodb /> },
-    { name: "C#", icon: <SiCsharp /> },
+    { name: "C#", icon: <TbBrandCSharp /> },
     { name: ".NET", icon: <SiDotnet /> },
     { name: "Spring", icon: <SiSpring /> },
     { name: "Hibernate", icon: <SiHibernate /> },

@@ -14,9 +14,11 @@ import { ThemeProvider } from "./ThemeContext";
 import WorkExperience from "./Components/WorkExperience";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import Loader from "./Components/Loader";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -25,6 +27,18 @@ function App() {
   useEffect(() => {
     document.body.className = isDarkMode ? "dark" : "light";
   }, [isDarkMode]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <ThemeProvider>
